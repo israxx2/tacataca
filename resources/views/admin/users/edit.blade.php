@@ -34,8 +34,13 @@
     </div>
 
     <div class="form-group">
-      {!! Form::label('carrera_id', 'Carrera') !!}
+      {!! Form::label('carrera_id', 'Tipo') !!}
       {!! Form::select('tipo', $tipo, $user->tipo, ['class' => 'form-control', 'required']) !!}
+    </div>
+
+    <div class="form-group">
+      {!! Form::label('equipo_id', 'Equipo') !!}
+      {!! Form::select('equipo_id', $equipos, $user->equipo_id, ['class' => 'form-control']) !!}
     </div>
 
     <center>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\User;
 use App\Carrera;
 use App\Buzon;
+use App\Equipo;
 
 class UserController extends Controller
 {
@@ -87,12 +88,15 @@ class UserController extends Controller
         $user = User::find($id);
         $carreras= Carrera::orderBy('nombre', 'ASC')
         ->pluck('nombre','id');
+        $equipos= Equipo::orderBy('nombre', 'ASC')
+        ->pluck('nombre','id');
         $tipo = ['estudiante' => 'estudiante', 'admin' => 'admin'];
 
         return view('admin.users.edit')
         ->with('user', $user)
         ->with('tipo', $tipo)
-        ->with('carreras', $carreras);
+        ->with('carreras', $carreras)
+        ->with('equipos', $equipos);
     }
 
     /**
@@ -109,10 +113,11 @@ class UserController extends Controller
         $user->apellidos = strtoupper($request->apellidos);
         $user->email = $request->email;
         $user->carrera_id = $request->carrera_id;
+        $user->equipo_id = $request->equipo_id;
         $user->tipo = $request->tipo;
         $user->save();
 
-        return Redirect('/admin/user');
+        return Redirect('/admin/user/'.$user->id);
     }
 
     /**
