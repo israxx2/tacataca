@@ -151,7 +151,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 
 Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function () {
 	Route::resource('photos', 'Admin\UserController')->only([
-    'index', 'show'
+    'index', 'show', 'delete'
 	])->names([
 	'index' => 'estudiante.user.index',
 	'show' => 'estudiante.user.show'
