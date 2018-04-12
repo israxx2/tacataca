@@ -83,20 +83,6 @@
             
 
         </div>
-
-        <div class="form-group">
-        {!! Form::label('user_id_2', 'Victoria Jugador 1') !!}
-        {!! Form::radio('ganador', 1, true, ['class' => 'checkbox-inline']) !!}
-
-        {!! Form::label('user_id_2', 'Victoria Jugador 2') !!}
-        {!! Form::radio('ganador', 2, true, ['class' => 'checkbox-inline']) !!}
-        </div>
-
-        
-
-        
-
-
         <center>
           <div class="form-group">
             {!! Form::submit('Registrar', ['class' => 'btn btn-primary', 'id' => 'submit_all', 'disabled']) !!}

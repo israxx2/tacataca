@@ -66,7 +66,7 @@ class PartidoDobleController extends Controller
         $Qb = ($equipo_1->elo - $equipo_2->elo)/400;
         $Eb = 1 / (1+ pow(10, $Qb));
 
-        if($request->ganador == 1){
+        if($request->goles_1 > $request->goles_2){
             if($equipo_1->elo < 2100){
                 $K = 32;
             } elseif($equipo_1->elo < 2400){
@@ -107,7 +107,7 @@ class PartidoDobleController extends Controller
             $equipo_2->save();
         }
 
-        if($request->ganador == 2){
+        if($request->goles_1 < $request->goles_2){
             if($equipo_2->elo < 2100){
                 $K = 32;
             } elseif($equipo_2->elo < 2400){
@@ -146,6 +146,23 @@ class PartidoDobleController extends Controller
 
             $equipo_2->elo = $equipo_2->elo + $K * $Ea;
             $equipo_1->elo = $equipo_1->elo + -$K * $Ea;
+            $equipo_2->save();
+            $equipo_1->save();
+        }
+        else{
+            $partido->equipos()->attach($request->equipo_id_1, [
+                'goles' => $request->goles_1, 
+                'resultado' => 'empate',
+                'elo' => 0
+                ]);
+            $partido->equipos()->attach($request->equipo_id_2, [
+                'goles' => $request->goles_2, 
+                'resultado' => 'empate',
+                'elo' => 0
+                ]);
+                
+            $equipo_2->juegos_totales_2v2 = $equipo_2->juegos_totales_2v2 + 1;
+            $equipo_1->juegos_totales_2v2 = $equipo_1->juegos_totales_2v2 + 1;
             $equipo_2->save();
             $equipo_1->save();
         }

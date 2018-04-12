@@ -65,7 +65,7 @@ class PartidoSingleController extends Controller
         $Qb = ($jugador_1->elo - $jugador_2->elo)/400;
         $Eb = 1 / (1+ pow(10, $Qb));
 
-        if($request->ganador == 1){
+        if($request->goles_1 > $request->goles_2){
             if($jugador_1->elo < 2100){
                 $K = 32;
             } elseif($jugador_1->elo < 2400){
@@ -103,10 +103,9 @@ class PartidoSingleController extends Controller
             $jugador_1->juegos_totales_1v1 = $jugador_1->juegos_totales_1v1 + 1; 
             $jugador_2->juegos_totales_1v1 = $jugador_2->juegos_totales_1v1 + 1;
             $jugador_1->save();
-            $jugador_2->save();
+            $jugador_2->save();          
         }
-
-        if($request->ganador == 2){
+        elseif($request->goles_1 < $request->goles_2){
             if($jugador_2->elo < 2100){
                 $K = 32;
             } elseif($jugador_2->elo < 2400){
@@ -140,6 +139,24 @@ class PartidoSingleController extends Controller
                 
                 $jugador_1->elo = $jugador_1->elo + -$K * $Eb; 
             } 
+            $jugador_2->juegos_totales_1v1 = $jugador_2->juegos_totales_1v1 + 1;
+            $jugador_1->juegos_totales_1v1 = $jugador_1->juegos_totales_1v1 + 1;
+            $jugador_2->save();
+            $jugador_1->save();
+        }
+        else{
+
+            $partido->users()->attach($request->user_id_1, [
+                'goles' => $request->goles_1, 
+                'resultado' => 'empate',
+                'elo' => 0
+                ]);
+            $partido->users()->attach($request->user_id_2, [
+                'goles' => $request->goles_2, 
+                'resultado' => 'empate',
+                'elo' => 0
+                ]);
+                
             $jugador_2->juegos_totales_1v1 = $jugador_2->juegos_totales_1v1 + 1;
             $jugador_1->juegos_totales_1v1 = $jugador_1->juegos_totales_1v1 + 1;
             $jugador_2->save();
