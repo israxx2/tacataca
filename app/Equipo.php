@@ -12,7 +12,7 @@ class Equipo extends Model
     protected $table = 'equipos';
 
     protected $fillable = [
-        'nombre','elo', 'v_duelos_2v2', 'v_torneos_2v2', 'juegos_totales_2v2',
+        'nombre','elo', 'v_duelos_2v2', 'v_torneos_2v2', 'juegos_totales_2v2', 'goles_totales',
     ];
 
     /**

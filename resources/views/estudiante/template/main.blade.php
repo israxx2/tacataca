@@ -2,32 +2,49 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>@yield('title', 'Default') | Panel de Administración</title>
-<meta name="description" content="">
-<meta name="author" content="">
 
-<!-- Bootstrap -->
-<link rel="stylesheet" type="text/css"  href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome/css/font-awesome.css') }}">
-<link rel="stylesheet" type="text/css"  href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
-<script type="text/javascript" src="{{ asset('js/jquery.1.11.1.js') }}"></script> 
-<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.js') }}"></script> 
-<script defer src="{{ asset('svg-with-js/js/fontawesome-all.js') }}"></script>
-<script defer src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<!--     Fonts and icons     -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+<!-- CSS Files -->
+<link href={{ asset('estudiante/css/bootstrap.min.css') }} rel="stylesheet" />
+<link href={{ asset('estudiante/css/now-ui-dashboard.css?v=1.0.1') }} rel="stylesheet" />
+
+<!--   Core JS Files   -->
+<script src={{ asset('estudiante/js/core/jquery.min.js') }}></script>
+<script src={{ asset('estudiante/js/core/popper.min.js') }}></script>
+<script src={{ asset('estudiante/js/core/bootstrap.min.js') }}></script>
+<script src={{ asset('estudiante/js/plugins/perfect-scrollbar.jquery.min.js') }}></script>
+
+<!-- Chart JS -->
+<script src={{ asset('estudiante/js/plugins/chartjs.min.js') }}></script>
+<!--  Notifications Plugin    -->
+<script src={{ asset('estudiante/js/plugins/bootstrap-notify.js') }}></script>
+<!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
+<script src={{ asset('estudiante/js/now-ui-dashboard.js?v=1.0.1') }}></script>
+
 
 
 </head>
-<body>
-
-@include('admin.template.partials.nav')
-
-<div class="container-fluid">
-@yield('content')
-
-</div>
-
+<body class="">
+    <div class="wrapper">
+        @include('estudiante.template.partials.nav_lateral')
+        
+        <div class="main-panel">
+            @include('estudiante.template.partials.nav_superior')
+            <div class="panel-header panel-header-sm">
+            </div>
+            <div class="content">
+                @yield('content')
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

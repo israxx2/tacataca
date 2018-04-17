@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Estudiante;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class EventoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('estudiante.ranking.index');
+        //
     }
 
     /**

@@ -150,8 +150,25 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 });
 
 Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function () {
-	Route::resource('photos', 'Admin\UserController')->only([
-    'index', 'show', 'delete'
+
+	// //Panel principal del estudiante
+	// Route::get('/','Estudiante\EstudianteController@index');
+
+	//Rutas de los usuarios
+	Route::resource('/', 'Estudiante\UserController')->only([
+    'index', 'show',
+	])->names([
+	'index' => 'estudiante.user.index',
+	'show' => 'estudiante.user.show'
+	]);
+	Route::post('ranking',[
+	  'uses'  =>'Admin\UserController@ranking',
+	  'as'    =>'estudiante.user.ranking'
+	]);
+
+	//Rutas de los usuarios
+	Route::resource('eventos', 'Admin\EventoController')->only([
+    'index', 'show',
 	])->names([
 	'index' => 'estudiante.user.index',
 	'show' => 'estudiante.user.show'

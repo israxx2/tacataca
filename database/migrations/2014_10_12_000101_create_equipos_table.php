@@ -16,10 +16,11 @@ class CreateEquiposTable extends Migration
         Schema::create('equipos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre', 32);
-            $table->integer('elo')->default(1200);
+            $table->integer('elo')->default(800);
             $table->integer('v_duelos_2v2')->default(0);
             $table->integer('v_torneos_2v2')->default(0);
             $table->integer('juegos_totales_2v2')->default(0);
+            $table->integer('goles_totales')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

@@ -22,10 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('nick')->nullable();
             $table->integer('c_nick')->default(0);
-            $table->integer('elo')->default(1200);
+            $table->enum('posicion',['delantero','defensa','ambidiestro'])->default("ambidiestro");
+            $table->integer('elo')->default(800);
             $table->integer('v_duelos_1v1')->default(0);
             $table->integer('v_torneos_1v1')->default(0);   
             $table->integer('juegos_totales_1v1')->default(0);
+            $table->integer('goles_totales')->default(0);
             $table->enum('tipo',['admin','estudiante'])->default("estudiante");
             $table->string('password');
             $table->softDeletes();

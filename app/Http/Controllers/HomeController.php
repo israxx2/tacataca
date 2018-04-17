@@ -30,7 +30,7 @@ class HomeController extends Controller
         }
 
         if(Auth::User()->tipo == 'estudiante'){
-            return view('/jugador');
+            return redirect('/estudiante');
         }
     }
 }

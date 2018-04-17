@@ -18,7 +18,7 @@ class EquipoController extends Controller
     {
         $equipos= Equipo::withTrashed()
         ->orderBy('id', 'ASC')
-        ->paginate(15);
+        ->get();
         return view('admin.equipos.index')
         ->with('equipos', $equipos);   
     }

@@ -68,11 +68,11 @@ class PartidoDobleController extends Controller
 
         if($request->goles_1 > $request->goles_2){
             if($equipo_1->elo < 2100){
-                $K = 32;
+                $K = 64;
             } elseif($equipo_1->elo < 2400){
-                $K = 24;
+                $K = 32;
             }else{
-                $K = 16;
+                $K = 24;
             }
             $partido->equipos()->attach($request->equipo_id_1, [ 
                 'goles' => $request->goles_1, 
@@ -109,11 +109,11 @@ class PartidoDobleController extends Controller
 
         if($request->goles_1 < $request->goles_2){
             if($equipo_2->elo < 2100){
-                $K = 32;
+                $K = 64;
             } elseif($equipo_2->elo < 2400){
-                $K = 24;
+                $K = 32;
             }else{
-                $K = 16;
+                $K = 24;
             }
             $partido->equipos()->attach($request->equipo_id_1, [
                 'goles' => $request->goles_1, 
@@ -127,20 +127,20 @@ class PartidoDobleController extends Controller
                 ]);
 
             if($evento->modalidad_id == 2){
-                $equipo_2->elo = $equipo_2->elo + $K * $Eb;
+                $equipo_2->elo = $equipo_2->elo + $K * $Ea;
                 $equipo_2->v_torneos_2v2 = $equipo_2->v_torneos_2v2 + 1;
                 $equipo_2->juegos_totales_2v2 = $equipo_2->juegos_totales_2v2 + 1;            
                 
-                $equipo_1->elo = $equipo_1->elo + -$K * $Eb;
+                $equipo_1->elo = $equipo_1->elo + -$K * $Ea;
                 $equipo_1->juegos_totales_2v2 = $equipo_1->juegos_totales_2v2 + 1; 
             }
 
             if($evento->modalidad_id == 1){
-                $equipo_2->elo = $equipo_2->elo + $K * $Eb;
+                $equipo_2->elo = $equipo_2->elo + $K * $Ea;
                 $equipo_2->v_duelos_2v2 = $equipo_2->v_duelos_2v2 + 1;
                 $equipo_2->juegos_totales_2v2 = $equipo_2->juegos_totales_2v2 + 1;            
                 
-                $equipo_1->elo = $equipo_1->elo + -$K * $Eb;
+                $equipo_1->elo = $equipo_1->elo + -$K * $Ea;
                 $equipo_1->juegos_totales_2v2 = $equipo_1->juegos_totales_2v2 + 1; 
             }
 

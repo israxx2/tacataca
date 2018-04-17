@@ -65,13 +65,16 @@ class PartidoSingleController extends Controller
         $Qb = ($jugador_1->elo - $jugador_2->elo)/400;
         $Eb = 1 / (1+ pow(10, $Qb));
 
+        $jugador_1->goles_totales = $jugador_1->goles_totales + $request->goles_1;
+        $jugador_2->goles_totales = $jugador_2->goles_totales + $request->goles_2;
+        
         if($request->goles_1 > $request->goles_2){
             if($jugador_1->elo < 2100){
-                $K = 32;
+                $K = 64;
             } elseif($jugador_1->elo < 2400){
-                $K = 24;
+                $K = 32;
             }else{
-                $K = 16;
+                $K = 24;
             }
 
             $partido->users()->attach($request->user_id_1, [ 
@@ -107,11 +110,11 @@ class PartidoSingleController extends Controller
         }
         elseif($request->goles_1 < $request->goles_2){
             if($jugador_2->elo < 2100){
-                $K = 32;
+                $K = 64;
             } elseif($jugador_2->elo < 2400){
-                $K = 24;
+                $K = 32;
             }else{
-                $K = 16;
+                $K = 24;
             }
             $partido->users()->attach($request->user_id_1, [
                 'goles' => $request->goles_1, 
@@ -125,19 +128,19 @@ class PartidoSingleController extends Controller
                 ]);
 
             if($evento->modalidad_id == 2){
-                $jugador_2->elo = $jugador_2->elo + $K * $Eb;
+                $jugador_2->elo = $jugador_2->elo + $K * $Ea;
                 $jugador_2->v_torneos_1v1 = $jugador_2->v_torneos_1v1 + 1;
                             
                 
-                $jugador_1->elo = $jugador_1->elo + -$K * $Eb;
+                $jugador_1->elo = $jugador_1->elo + -$K * $Ea;
                  
             }
 
             if($evento->modalidad_id == 1){
-                $jugador_2->elo = $jugador_2->elo + $K * $Eb;
+                $jugador_2->elo = $jugador_2->elo + $K * $Ea;
                 $jugador_2->v_duelos_1v1 = $jugador_2->v_duelos_1v1 + 1;          
                 
-                $jugador_1->elo = $jugador_1->elo + -$K * $Eb; 
+                $jugador_1->elo = $jugador_1->elo + -$K * $Ea; 
             } 
             $jugador_2->juegos_totales_1v1 = $jugador_2->juegos_totales_1v1 + 1;
             $jugador_1->juegos_totales_1v1 = $jugador_1->juegos_totales_1v1 + 1;

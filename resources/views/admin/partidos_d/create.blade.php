@@ -78,9 +78,7 @@
                 </div>
 
             </div>
-            
-            
-
+        
         </div>
 
         <center>
@@ -89,7 +87,6 @@
           </div>
         </center>
         <br>
-
 
     {!! Form::close() !!}
 
