@@ -14,7 +14,7 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
       <ul class="nav">
           {{-- PERFIL DEL USUARIO --}}
           <li class="active">
-              <a href="../examples/user.html">
+          <a href=" {{ route('estudiante.user') }}">
                   <i class="now-ui-icons users_single-02"></i>
                   <p>Perfil</p>
               </a>

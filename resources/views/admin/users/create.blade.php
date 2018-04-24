@@ -10,8 +10,13 @@
 {!! Form::open(['route' => 'admin.user.store' , 'method' => 'POST']) !!}
     
     <div class="form-group">
-      {!! Form::label('carrera_id', 'Carrera') !!}
-      {!! Form::select('carrera_id', $carreras, null, ['class' => 'form-control', 'placeholder' => 'Carrera', 'required']) !!}
+        {!! Form::label('carrera_id', 'Carrera') !!}
+        <select class="form-control" id="carrera_id" name="carrera_id" required style="width: 100%">
+        <option></option>
+        @foreach($carreras as $carrera)
+            <option value="{{ $carrera->id }}">{{ $carrera->nombre }}</option>
+        @endforeach         
+      </select> 
     </div>
 
     <div class="form-group">
@@ -31,14 +36,14 @@
 
     <div class="form-group">
       {!! Form::label('password', 'Contraseña') !!}
-      {!! Form::password('password', ['class' => 'form-control', 'placeholder' => '*************', 'required']) !!}
+      {!! Form::input('text', 'password', null, ['class' => 'form-control', 'placeholder' => '*************', 'required']) !!}
     </div>
 
     <div class="form-group">
       {!! Form::label('tipo', 'Tipo') !!}
       <select class="form-control" name="tipo">
         <option value="estudiante">estudiante</option>
-        <option value="admin">admin</option>   
+
       </select>
     </div>
 
@@ -49,8 +54,15 @@
     </center>
     <br>
 
+    
 
 
 {!! Form::close() !!}
+<script>
 
+    $('#carrera_id').select2({
+      placeholder: 'Seleccione una opcion'
+    });
+
+  </script>
 @endsection

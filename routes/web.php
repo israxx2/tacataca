@@ -38,6 +38,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
 	  'uses'  =>'Admin\UserController@activar',
 	  'as'    =>'admin.user.activar'
 	]);
+	Route::post('user/pw',[
+	  'uses'  =>'Admin\UserController@pw',
+	  'as'    =>'admin.user.pw'
+	]);
+	Route::put('user/pw_save/{user}',[
+	  'uses'  =>'Admin\UserController@pw_save',
+	  'as'    =>'admin.user.pw_save'
+	]);
 
 	//Rutas de los Equipos
 	Route::resource('equipo', 'Admin\EquipoController', ['names' => [
@@ -154,6 +162,11 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 	// //Panel principal del estudiante
 	// Route::get('/','Estudiante\EstudianteController@index');
 
+	Route::get('user', [
+	  'uses'  =>'Estudiante\UserController@user',
+	  'as'    =>'estudiante.user'
+	]);
+
 	//Rutas de los usuarios
 	Route::resource('/', 'Estudiante\UserController')->only([
     'index', 'show',
@@ -161,11 +174,11 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 	'index' => 'estudiante.user.index',
 	'show' => 'estudiante.user.show'
 	]);
-	Route::post('ranking',[
-	  'uses'  =>'Admin\UserController@ranking',
+	Route::get('ranking',[
+	  'uses'  =>'Estudiante\UserController@ranking',
 	  'as'    =>'estudiante.user.ranking'
 	]);
-
+/*
 	//Rutas de los usuarios
 	Route::resource('eventos', 'Admin\EventoController')->only([
     'index', 'show',
@@ -173,4 +186,6 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 	'index' => 'estudiante.user.index',
 	'show' => 'estudiante.user.show'
 	]);
+
+	*/
 });

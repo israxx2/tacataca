@@ -11,23 +11,24 @@
 <!--     Fonts and icons     -->
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
 <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+<link href="{{ asset('fonts/medalla/style.css') }}" rel="stylesheet">
 
 <!-- CSS Files -->
-<link href={{ asset('estudiante/css/bootstrap.min.css') }} rel="stylesheet" />
-<link href={{ asset('estudiante/css/now-ui-dashboard.css?v=1.0.1') }} rel="stylesheet" />
+<link href={{ asset('estudiante_public/css/bootstrap.min.css') }} rel="stylesheet" />
+<link href={{ asset('estudiante_public/css/now-ui-dashboard.css?v=1.0.1') }} rel="stylesheet" />
 
 <!--   Core JS Files   -->
-<script src={{ asset('estudiante/js/core/jquery.min.js') }}></script>
-<script src={{ asset('estudiante/js/core/popper.min.js') }}></script>
-<script src={{ asset('estudiante/js/core/bootstrap.min.js') }}></script>
-<script src={{ asset('estudiante/js/plugins/perfect-scrollbar.jquery.min.js') }}></script>
+<script src={{ asset('estudiante_public/js/core/jquery.min.js') }}></script>
+<script src={{ asset('estudiante_public/js/core/popper.min.js') }}></script>
+<script src={{ asset('estudiante_public/js/core/bootstrap.min.js') }}></script>
+<script src={{ asset('estudiante_public/js/plugins/perfect-scrollbar.jquery.min.js') }}></script>
 
 <!-- Chart JS -->
-<script src={{ asset('estudiante/js/plugins/chartjs.min.js') }}></script>
+<script src={{ asset('estudiante_public/js/plugins/chartjs.min.js') }}></script>
 <!--  Notifications Plugin    -->
-<script src={{ asset('estudiante/js/plugins/bootstrap-notify.js') }}></script>
+<script src={{ asset('estudiante_public/js/plugins/bootstrap-notify.js') }}></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-<script src={{ asset('estudiante/js/now-ui-dashboard.js?v=1.0.1') }}></script>
+<script src={{ asset('estudiante_public/js/now-ui-dashboard.js?v=1.0.1') }}></script>
 
 
 

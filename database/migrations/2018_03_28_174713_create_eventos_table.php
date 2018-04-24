@@ -22,6 +22,7 @@ class CreateEventosTable extends Migration
             $table->enum('tipo',['1v1','2v2']);
             $table->string('fecha');
             $table->string('hora');
+            $table->integer('cantidad')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

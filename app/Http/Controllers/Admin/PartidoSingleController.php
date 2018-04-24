@@ -33,6 +33,7 @@ class PartidoSingleController extends Controller
         ->pluck('nombre', 'id');
 
         $users = User::orderBy('id', 'ASC')
+        ->where('tipo','estudiante')
         ->get();
 
         return view('admin.partidos_s.create')
@@ -215,6 +216,8 @@ class PartidoSingleController extends Controller
         foreach($partido->users as $user){
             $user->elo = $user->elo - $user->pivot->elo;
             $user->juegos_totales_1v1 = $user->juegos_totales_1v1 - 1;
+            $user->goles_totales = $user->goles_totales - $user->pivot->goles;
+
             if($user->pivot->resultado == 'victoria'){
                 if($partido->evento->modalidad_id == 1){
                     $user->v_duelos_1v1 = $user->v_duelos_1v1 - 1;

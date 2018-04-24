@@ -31,6 +31,7 @@ class EquipoController extends Controller
     public function create()
     {
         $users = User::orderBy('id', 'ASC')
+        ->where('tipo','estudiante')
         ->get();
         return view('admin.equipos.create')
         ->with('users',$users);

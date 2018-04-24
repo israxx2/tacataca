@@ -21,7 +21,15 @@
 		</div>  	
 	  </li>
 	  <li class="list-group-item"><b>ID: </b>#{{ $user->id }}</li>
-	  <li class="list-group-item"><b>E-MAIL: </b>{{ $user->email }}</li>
+	  <li class="list-group-item"><b>E-MAIL: </b>{{ $user->email }} 
+		
+		{!! Form::open(['route' => 'admin.user.pw' , 'method' => 'POST']) !!}
+			{!! Form::hidden('user_id', $user->id) !!}
+			<button type="submit" class="btn btn-link d-flex justify-content-start">Cambiar contraseña</button>
+		{!! Form::close() !!}
+
+		
+	</li>
 	  <li class="list-group-item"><b>NOMBRES: </b>{{ $user->nombres }}</li>
 	  <li class="list-group-item"><b>APELLIDOS: </b>{{ $user->apellidos }}</li>
 	  <li class="list-group-item"><b>CARRERA: </b>{{ $user->carrera->nombre }}</li>

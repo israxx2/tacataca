@@ -7,13 +7,12 @@
 <br>	
 <hr>
 <div class="table-responsive">
-	<table class="table table-hover">
+	<table class="table table-striped display compact table-condensed" id="table_partidoDoble">
     <thead>
       <tr>
         <th>ID</th>
 		<th>Equipo1</th>
 		<th>Equipo2</th>
-		<th>Fecha creación</th>
 		<th>Albitro</th>
 		<th>Detalles</th>
 		<th>Eliminar</th>
@@ -28,8 +27,6 @@
 	    	@foreach($partido->equipos as $equipo)
 	    		<td>{{ $equipo->nombre }}</td>
 	    	@endforeach
-
-	  		<td>{{ $partido->created_at }}</td>
 
 	  		<td>{{ $partido->albitro->nombres.' '.$partido->albitro->apellidos }}</td>
 		
@@ -108,5 +105,14 @@
 
 </div>
 
+<script>
+		$(document).ready( function () {
+				$('#table_partidoDoble').DataTable({
+					"language":{
+						"url":"{{ asset('Spanish.json') }}"
+					}
+				});
+		} );
+	</script>
 
 @endsection

@@ -7,14 +7,13 @@
 <br>	
 <hr>
 <div class="table-responsive">
-	<table class="table table-hover">
+	<table class=class="table table-striped display compact table-condensed" id="table_partidoSingle">
     <thead>
       <tr>
         <th>ID</th>
 		<th>Jugador1</th>
 		<th>Jugador2</th>
-		<th>Fecha creación</th>
-		<th>Albitro</th>
+		<th>Arbitro</th>
 		<th>Detalles</th>
 		<th>Eliminar</th>
       </tr>
@@ -29,10 +28,8 @@
 	    		<td>{{ $user->nombres.' '.$user->apellidos }}</td>
 	    	@endforeach
 
-	  		<td>{{ $partido->created_at }}</td>
+				<td>{{ $partido->albitro->nombres.' '.$partido->albitro->apellidos }}</td>
 
-	  		<td>{{ $partido->albitro->nombres.' '.$partido->albitro->apellidos }}</td>
-		
 			<td>
 				<button type="button" class="btn btn-info" data-toggle="modal" data-target="#detalles{{ $partido->id }}">
 	        		<i class="fas fa-book"></i>
@@ -107,6 +104,14 @@
   </table>
 
 </div>
-
+<script>
+		$(document).ready( function () {
+				$('#table_partidoSingle').DataTable({
+					"language":{
+						"url":"{{ asset('Spanish.json') }}"
+					}
+				});
+		} );
+	</script>
 
 @endsection

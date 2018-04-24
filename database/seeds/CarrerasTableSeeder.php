@@ -16,99 +16,95 @@ class CarrerasTableSeeder extends Seeder
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'PEDAGOGÍA EN EDUCACIÓN FÍSICA',
+            'nombre' => 'PEDAGOGIA EN EDUCACION FISICA',
         ]);
        
         DB::table('carreras')->insert([
-            'nombre' => 'PEDAGOGÍA EN INGLES',
+            'nombre' => 'PEDAGOGIA EN INGLES',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'PEDAGOGÍA GENERAL BÁSICA CON MENCIÓN',
+            'nombre' => 'PEDAGOGIA GENERAL BASICA CON MENCION',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'PEDAGOGÍA EN EDUCACIÓN ESPECIAL',
-        ]);
-      
-      DB::table('carreras')->insert([
-            'nombre' => 'EDUCACIÓN PARVULARIA',
+            'nombre' => 'PEDAGOGIA EN EDUCACION ESPECIAL',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'PEDAGOGÍA EN LENGUA CASTELLANA Y COMUNICACIÓN',
+            'nombre' => 'PEDAGOGIA EN LENGUA CASTELLANA Y COMUNICACION',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'PEDAGOGÍA EN EDUCACIÓN ESPECIAL',
+            'nombre' => 'PEDAGOGIA EN EDUCACION ESPECIAL',
         ]);
          
         DB::table('carreras')->insert([
-            'nombre' => 'EDUCACIÓN PARVULARIA',
+            'nombre' => 'EDUCACION PARVULARIA',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'PEDAGOGÍA GENERAL BÁSICA',
+            'nombre' => 'PEDAGOGIA GENERAL BASICA',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'ENFERMERÍA',
+            'nombre' => 'ENFERMERIA',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'KINESIOLOGÍA',
+            'nombre' => 'KINESIOLOGIA',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'PSICOLOGÍA',
+            'nombre' => 'PSICOLOGIA',
         ]);
          
         DB::table('carreras')->insert([
-            'nombre' => 'NUTRICIÓN Y DIETÉTICA',
+            'nombre' => 'NUTRICION Y DIETETICA',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'CONSTRUCCIÓN CIVIL',
+            'nombre' => 'CONSTRUCCION CIVIL',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'INGEIERÍA CIVIL',
+            'nombre' => 'INGENIERIA CIVIL',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'INGENIERÍA CIVIL INDUSTRIAL',
+            'nombre' => 'INGENIERIA CIVIL INDUSTRIAL',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'INGENIERÍA CIVIL INFORMÁTICA',
+            'nombre' => 'INGENIERIA CIVIL INFORMATICA',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'INGENIERÍA EJECUCIÓN EN COMPUTACIÓN E INFORMÁTICA',
+            'nombre' => 'INGENIERIA EJECUCION EN COMPUTACION E INFORMATICA',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'INGENIERÍA EN CONSTRUCCIÓN',
+            'nombre' => 'INGENIERIA EN CONSTRUCCION',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'INGENIERÍA CIVIL ELECTRÓNICA',
+            'nombre' => 'INGENIERIA CIVIL ELECTRONICA',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'AUDITORÍA',
+            'nombre' => 'AUDITORIA',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'INGENIERÍA COMERCIAL',
+            'nombre' => 'INGENIERIA COMERCIAL',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'ADMINISTRACIÓN PÚBLICA',
+            'nombre' => 'ADMINISTRACION PUBLICA',
         ]);
       
         DB::table('carreras')->insert([
-            'nombre' => 'SOCIOLOGÍA',
+            'nombre' => 'SOCIOLOGIA',
         ]);
 
         DB::table('carreras')->insert([
@@ -116,27 +112,27 @@ class CarrerasTableSeeder extends Seeder
         ]);
 
         DB::table('carreras')->insert([
-            'nombre' => 'AGRONOMÍA',
+            'nombre' => 'AGRONOMIA',
         ]);
 
         DB::table('carreras')->insert([
-            'nombre' => 'INGENIERÍA EN BIOTECNOLOGÍA',
+            'nombre' => 'INGENIERIA EN BIOTECNOLOGIA',
         ]);
 
         DB::table('carreras')->insert([
-            'nombre' => 'INGENIERÍA FORESTAL',
+            'nombre' => 'INGENIERIA FORESTAL',
         ]);
 
         DB::table('carreras')->insert([
-            'nombre' => 'PEDAGOGÍA EN RELIGIÓN Y FILOSOFÍA',
+            'nombre' => 'PEDAGOGIA EN RELIGION Y FILOSOFIA',
         ]);
 
         DB::table('carreras')->insert([
-            'nombre' => 'PEDAGOGÍA EN CIENCIAS',
+            'nombre' => 'PEDAGOGIA EN CIENCIAS',
         ]);
 
         DB::table('carreras')->insert([
-            'nombre' => 'PEDAGOGÍA EN MATEMÁTICAS Y COMPUTACIÓN',
+            'nombre' => 'PEDAGOGIA EN MATEMATICAS Y COMPUTACION',
         ]);
     }
 }

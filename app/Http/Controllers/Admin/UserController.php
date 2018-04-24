@@ -34,7 +34,7 @@ class UserController extends Controller
     public function create()
     {
         $carreras= Carrera::orderBy('nombre', 'ASC')
-        ->pluck('nombre','id');
+        ->get();
         return view('admin.users.create')
         ->with('carreras', $carreras);
     }
@@ -60,7 +60,7 @@ class UserController extends Controller
         $buzon->user_id = $user->id;
         $buzon->save();
 
-        return Redirect('/admin/user');
+        return Redirect('/admin/user/create');
 
     }
 
@@ -97,6 +97,22 @@ class UserController extends Controller
         ->with('tipo', $tipo)
         ->with('carreras', $carreras)
         ->with('equipos', $equipos);
+    }
+
+    public function pw(Request $request)
+    {
+        $user = User::find($request->user_id);
+        return view('admin.users.pw')
+        ->with('user', $user);
+    }
+
+    public function pw_save(Request $request, $id)
+    {   
+        $user = User::find($id);
+        $user->password = bcrypt($request->password);
+        $user->save();
+        
+        return Redirect('/admin/user/'.$id);
     }
 
     /**

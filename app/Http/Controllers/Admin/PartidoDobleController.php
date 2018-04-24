@@ -60,6 +60,9 @@ class PartidoDobleController extends Controller
         $equipo_1 = Equipo::find($request->equipo_id_1);
         $equipo_2 = Equipo::find($request->equipo_id_2);
 
+        $equipo_1->goles_totales = $equipo_1->goles_totales + $request->goles_1;
+        $equipo_2->goles_totales = $equipo_2->goles_totales + $request->goles_2;
+
         $Qa = ($equipo_2->elo - $equipo_1->elo)/400;
         $Ea = 1 / (1+ pow(10, $Qa));
 
@@ -105,9 +108,8 @@ class PartidoDobleController extends Controller
 
             $equipo_1->save();
             $equipo_2->save();
-        }
 
-        if($request->goles_1 < $request->goles_2){
+        }elseif($request->goles_1 < $request->goles_2){
             if($equipo_2->elo < 2100){
                 $K = 64;
             } elseif($equipo_2->elo < 2400){
@@ -127,20 +129,16 @@ class PartidoDobleController extends Controller
                 ]);
 
             if($evento->modalidad_id == 2){
-                $equipo_2->elo = $equipo_2->elo + $K * $Ea;
                 $equipo_2->v_torneos_2v2 = $equipo_2->v_torneos_2v2 + 1;
                 $equipo_2->juegos_totales_2v2 = $equipo_2->juegos_totales_2v2 + 1;            
                 
-                $equipo_1->elo = $equipo_1->elo + -$K * $Ea;
                 $equipo_1->juegos_totales_2v2 = $equipo_1->juegos_totales_2v2 + 1; 
             }
 
             if($evento->modalidad_id == 1){
-                $equipo_2->elo = $equipo_2->elo + $K * $Ea;
                 $equipo_2->v_duelos_2v2 = $equipo_2->v_duelos_2v2 + 1;
                 $equipo_2->juegos_totales_2v2 = $equipo_2->juegos_totales_2v2 + 1;            
                 
-                $equipo_1->elo = $equipo_1->elo + -$K * $Ea;
                 $equipo_1->juegos_totales_2v2 = $equipo_1->juegos_totales_2v2 + 1; 
             }
 
@@ -148,8 +146,8 @@ class PartidoDobleController extends Controller
             $equipo_1->elo = $equipo_1->elo + -$K * $Ea;
             $equipo_2->save();
             $equipo_1->save();
-        }
-        else{
+        
+        }else{
             $partido->equipos()->attach($request->equipo_id_1, [
                 'goles' => $request->goles_1, 
                 'resultado' => 'empate',
@@ -213,9 +211,11 @@ class PartidoDobleController extends Controller
     public function destroy($id)
     {
         $partido = Partido::find($id);
+        
         foreach($partido->equipos as $equipo){
             $equipo->elo = $equipo->elo - $equipo->pivot->elo;
             $equipo->juegos_totales_2v2 = $equipo->juegos_totales_2v2 - 1;
+            $equipo->goles_totales = $equipo->goles_totales - $equipo->pivot->goles;
             
             if($equipo->pivot->resultado == 'victoria'){
                 if($partido->evento->modalidad_id == 1){

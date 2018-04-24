@@ -14,6 +14,7 @@
         <th>Nombre del Equipo</th>
 		<th>Elo</th>
 		<th>Juegos2v2</th>
+		<th>Goles totales</th>
 		<th>Estado</th>
 		<th>Detalles</th>		
 		<th>Eliminar</th>
@@ -25,7 +26,8 @@
           <td>{{ $equipo->id }}</td>
           <td>{{ $equipo->nombre }}</td>
           <td>{{ $equipo->elo }}</td>
-          <td>{{ $equipo->juegos_totales_2v2 }}</td>
+					<td>{{ $equipo->juegos_totales_2v2 }}</td>
+					<td>{{ $equipo->goles_totales }}</td>
           <td>
           	@if($equipo->deleted_at == null)
           		<p href="#" class="btn btn-success">
