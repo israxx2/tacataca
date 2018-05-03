@@ -167,6 +167,11 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 	  'as'    =>'estudiante.user'
 	]);
 
+	Route::get('historial', [
+	  'uses'  =>'Estudiante\UserController@historial',
+	  'as'    =>'estudiante.historial'
+	]);
+
 	//Rutas de los usuarios
 	Route::resource('/', 'Estudiante\UserController')->only([
     'index', 'show',

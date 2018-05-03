@@ -1,7 +1,7 @@
 @extends('estudiante.template.main')
 
 @section('title', 'Perfil') 
-
+@section('perfil', 'active') 
 @section('content')
 
 <div class="content">
@@ -60,7 +60,7 @@
                                 <td>{{ $user->juegos_totales_1v1 }}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Duelos ganados</th>
+                                    <th scope="row">Partidos Duelos Ganados</th>
                                     <td>{{ $user->v_duelos_1v1 }}</td>
                                 </tr>
                                 <tr>
@@ -75,37 +75,6 @@
                         </table>
                         <hr>
                         <br>
-                        <h6>Historial de Juego</h6>
-                        <table class="table">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">Oponente</th>
-                                    <th scope="col"><span class="icon-award"></span></th>
-                                    <th scope="col">GF</th>
-                                    <th scope="col">GC</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($user->partidos as $partido)
-                                        <tr>
-                                            @foreach($partido->users as $detallePartido)
-                                                @if($detallePartido->id != $user->id)
-                                                    <td>{{ $detallePartido->nombres.' '.$detallePartido->apellidos }}</td>
-                                                @endif
-                                            @endforeach
-
-                                            @foreach($partido->users as $detallePartido)
-                                                @if($detallePartido->id == $user->id)
-                                                    <td>{{ $detallePartido->pivot->elo }}</td>
-                                                @endif
-                                            @endforeach       
-                                        </tr>
-                                        
-                                    
-                                  @endforeach
-                                </tbody>
-                              </table>
-
                 </div>
 
 

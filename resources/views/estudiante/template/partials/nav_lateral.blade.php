@@ -13,25 +13,39 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
   <div class="sidebar-wrapper">
       <ul class="nav">
           {{-- PERFIL DEL USUARIO --}}
-          <li class="active">
-          <a href=" {{ route('estudiante.user') }}">
+          <li class="@yield('perfil', ' ')">
+          <a href="{{ route('estudiante.user') }}">
                   <i class="now-ui-icons users_single-02"></i>
                   <p>Perfil</p>
               </a>
           </li>
-          {{-- OPCIONES DE LOS RANKING SINGLES --}}
-          <li>
-            <a href="../examples/tables.html">
+          {{-- HISTORIAL--}}
+          <li class="@yield('historial', ' ')">
+            <a href="{{ route('estudiante.historial') }}">
+                <i class="now-ui-icons education_paper"></i>
+                <p>Historial</p>
+            </a>
+          </li>
+          {{-- OPCIONES DE LOS RANKING --}}
+          <li class="@yield('ranking', ' ')">
+            <a href="#">
                 <i class="now-ui-icons design_bullet-list-67"></i>
                 <p>Ranking</p>
             </a>
-        </li>
+          </li>
           {{-- OPCIONES DE LOS EVENTOS --}}
-          <li>
-              <a href="../examples/map.html">
-                  <i class="now-ui-icons location_map-big"></i>
+          <li class="@yield('eventos', ' ')">
+              <a href="#">
+                  <i class="now-ui-icons ui-1_calendar-60"></i>
                   <p>Eventos</p>
               </a>
+          </li>
+          {{-- OPCIONES DE LOS EVENTOS --}}
+          <li class="@yield('invitaciones', ' ')">
+            <a href="#">
+                <i class="now-ui-icons ui-1_calendar-60"></i>
+                <p>Invitaciones</p>
+            </a>
           </li>
           
 
