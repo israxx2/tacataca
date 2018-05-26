@@ -19,6 +19,7 @@ class CreateDetallePartidoSingleTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('goles');
             $table->integer('elo');
+            $table->integer('elo_anterior');
             $table->enum('resultado',['victoria','derrota','empate']);
             $table->timestamps();
 

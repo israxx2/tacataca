@@ -37,7 +37,7 @@ class Partido extends Model
     public function users()
     {
         return $this->belongsToMany('App\User', 'detallePartidoSingle')
-          ->withPivot('goles','resultado', 'elo')
+          ->withPivot('goles','resultado', 'elo', 'elo_anterior')
           ->withTimestamps();
     }
 
@@ -45,7 +45,7 @@ class Partido extends Model
     public function equipos()
     {
         return $this->belongsToMany('App\Equipo', 'detallePartidoDoble')
-          ->withPivot('goles','resultado', 'elo')
+          ->withPivot('goles','resultado', 'elo', 'elo_anterior')
           ->withTimestamps();
     }
 

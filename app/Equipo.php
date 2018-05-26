@@ -32,7 +32,7 @@ class Equipo extends Model
     public function partidos()
     {
         return $this->belongsToMany('App\Partido', 'detallePartidoDoble', 'equipo_id', 'partido_id')
-        ->withPivot('goles', 'resultado', 'elo')
+        ->withPivot('goles', 'resultado', 'elo', 'elo_anterior')
         ->withTimestamps();
     }
 }

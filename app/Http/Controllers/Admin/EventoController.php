@@ -49,7 +49,7 @@ class EventoController extends Controller
     public function store(Request $request)
     {
         $evento = new Evento();
-        $evento->nombre = strtoupper($request->nombre);
+        $evento->nombre = $request->nombre;
         $evento->user_id = Auth::User()->id;
         $evento->modalidad_id = $request->modalidad_id;
         $evento->tipo = $request->tipo;
@@ -125,7 +125,7 @@ class EventoController extends Controller
     public function update(Request $request, $id)
     {
         $evento = Evento::find($id);
-        $evento->nombre = strtoupper($request->nombre);
+        $evento->nombre = $request->nombre;
         $evento->modalidad_id = $request->modalidad_id;
         $evento->fecha = '2018-'.$request->mes.'-'.$request->dia;
         $evento->hora = $request->hora.':'.$request->min;

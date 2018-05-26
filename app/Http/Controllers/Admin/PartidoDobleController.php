@@ -80,12 +80,14 @@ class PartidoDobleController extends Controller
             $partido->equipos()->attach($request->equipo_id_1, [ 
                 'goles' => $request->goles_1, 
                 'resultado' => 'victoria',
-                'elo' => $K * $Eb
+                'elo' => $K * $Eb,
+                'elo_anterior' => $equipo_1->elo
                 ]);
             $partido->equipos()->attach($request->equipo_id_2, [ 
                 'goles' => $request->goles_2, 
                 'resultado' => 'derrota',
-                'elo' => -$K * $Eb
+                'elo' => -$K * $Eb,
+                'elo_anterior' => $equipo_2->elo
                 ]);
 
             if($evento->modalidad_id == 2){
@@ -120,12 +122,14 @@ class PartidoDobleController extends Controller
             $partido->equipos()->attach($request->equipo_id_1, [
                 'goles' => $request->goles_1, 
                 'resultado' => 'derrota',
-                'elo' => -$K * $Ea
+                'elo' => -$K * $Ea,
+                'elo_anterior' => $equipo_1->elo
                 ]);
             $partido->equipos()->attach($request->equipo_id_2, [
                 'goles' => $request->goles_2, 
                 'resultado' => 'victoria',
-                'elo' => $K * $Ea
+                'elo' => $K * $Ea,
+                'elo_anterior' => $equipo_2->elo
                 ]);
 
             if($evento->modalidad_id == 2){
@@ -151,12 +155,14 @@ class PartidoDobleController extends Controller
             $partido->equipos()->attach($request->equipo_id_1, [
                 'goles' => $request->goles_1, 
                 'resultado' => 'empate',
-                'elo' => 0
+                'elo' => 0,
+                'elo_anterior' => $equipo_1->elo
                 ]);
             $partido->equipos()->attach($request->equipo_id_2, [
                 'goles' => $request->goles_2, 
                 'resultado' => 'empate',
-                'elo' => 0
+                'elo' => 0,
+                'elo_anterior' => $equipo_2->elo
                 ]);
                 
             $equipo_2->juegos_totales_2v2 = $equipo_2->juegos_totales_2v2 + 1;

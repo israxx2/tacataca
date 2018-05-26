@@ -14,11 +14,17 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
       <ul class="nav">
           {{-- PERFIL DEL USUARIO --}}
           <li class="@yield('perfil', ' ')">
-          <a href="{{ route('estudiante.user') }}">
+          <a href="{{ route('estudiante.perfil') }}">
                   <i class="now-ui-icons users_single-02"></i>
                   <p>Perfil</p>
               </a>
           </li>
+          <li class="@yield('equipo', ' ')">
+            <a href="{{ route('estudiante.equipo') }}">
+                    <i class="now-ui-icons users_single-02"></i>
+                    <p>Equipo</p>
+                </a>
+            </li>
           {{-- HISTORIAL--}}
           <li class="@yield('historial', ' ')">
             <a href="{{ route('estudiante.historial') }}">
@@ -35,7 +41,7 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
           </li>
           {{-- OPCIONES DE LOS EVENTOS --}}
           <li class="@yield('eventos', ' ')">
-              <a href="#">
+              <a href="{{ route('estudiante.eventos') }}">
                   <i class="now-ui-icons ui-1_calendar-60"></i>
                   <p>Eventos</p>
               </a>

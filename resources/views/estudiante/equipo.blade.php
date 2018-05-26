@@ -1,7 +1,7 @@
 @extends('estudiante.template.main')
 
-@section('title', 'Perfil') 
-@section('perfil', 'active') 
+@section('title', 'Equipo') 
+@section('equipo', 'active') 
 @section('content')
 
 <div class="content">
@@ -13,38 +13,29 @@
 
         
         <div class="col-md-12">
-            
+                <br>
+                @include('flash::message')
+
             <div class="card">
                 <div class="card-header">
-                    <h5 class="title">  Perfil</h5>
+                    <h5 class="title">Equipo</h5>
                 </div>
                 <div class="card-body">
-                        <h6>Datos personales</h6>
+                        <h6>Datos del equipo</h6>
                         <table class="table">
                                 <tbody>
                                     <tr>
                                         <th scope="row">Nombre</th>
-                                        <td>{{ $user->nombres.' '.$user->apellidos }}</td>
+                                        <td>{{ $equipo->nombre }}</td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row">Carrera</th>
-                                        <td>{{ $user->carrera->nombre }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Equipo</th>
-                                        @if($user->equipo_id == null)
-                                            <td>Sin equipo</td>
-                                        @else
-                                            <td>{{ $user->equipo->nombre }}</td>
-                                        @endif
-                                        
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">Posición</th>
-                                        <td>{{ $user->posicion }}</td>
-                                    </tr>
+                                    @foreach($equipo->users as $user)
+                                        <tr>
+                                            <th scope="row">Jugador(a)</th>
+                                            <td>{{ $user->nombres.' '.$user->apellidos }}</td>                                   
+                                        </tr>
+                                    @endforeach
 
-                                    </tbody>
+                                </tbody>
                               </table>
                               <hr>
                               <br>
@@ -53,19 +44,19 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">Medallas</th>
-                                    <td>{{ $user->elo }}</td>
+                                    <td>{{ $equipo->elo }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Partidos jugados</th>
-                                <td>{{ $user->juegos_totales_1v1 }}</td>
+                                <td>{{ $equipo->juegos_totales_2v2 }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Partidos Duelos Ganados</th>
-                                    <td>{{ $user->v_duelos_1v1 }}</td>
+                                    <td>{{ $equipo->v_duelos_2v2 }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Partidos Torneos Ganados</th>
-                                    <td>{{ $user->v_torneos_1v1 }}</td>
+                                    <td>{{ $equipo->v_torneos_2v2 }}</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Promedio Goles</th>
@@ -75,11 +66,11 @@
                         </table>
                         <hr>
                         <br>
-                </div>
-
-
+                    <button type="button" class="btn btn-link float-right" data-toggle="modal" data-target="#password">Cambiar contraseña</button>
+                </div>        
             </div>
         </div>
     </div>
 </div>
+
 @endsection

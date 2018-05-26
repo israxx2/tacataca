@@ -162,9 +162,24 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 	// //Panel principal del estudiante
 	// Route::get('/','Estudiante\EstudianteController@index');
 
-	Route::get('user', [
-	  'uses'  =>'Estudiante\UserController@user',
-	  'as'    =>'estudiante.user'
+	Route::get('perfil', [
+	  'uses'  =>'Estudiante\UserController@perfil',
+	  'as'    =>'estudiante.perfil'
+	]);
+
+	Route::post('perfil/posicion',[
+	  'uses'  =>'Estudiante\UserController@posicion',
+	  'as'    =>'estudiante.posicion'
+	]);
+
+	Route::post('perfil/password',[
+	  'uses'  =>'Estudiante\UserController@password',
+	  'as'    =>'estudiante.password'
+	]);
+
+	Route::get('Equipo', [
+	  'uses'  =>'Estudiante\UserController@equipo',
+	  'as'    =>'estudiante.equipo'
 	]);
 
 	Route::get('historial', [
@@ -179,9 +194,10 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 	'index' => 'estudiante.user.index',
 	'show' => 'estudiante.user.show'
 	]);
-	Route::get('ranking',[
-	  'uses'  =>'Estudiante\UserController@ranking',
-	  'as'    =>'estudiante.user.ranking'
+
+	Route::get('eventos',[
+	  'uses'  =>'Estudiante\UserController@eventos',
+	  'as'    =>'estudiante.eventos'
 	]);
 /*
 	//Rutas de los usuarios

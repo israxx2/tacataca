@@ -163,6 +163,9 @@ return [
         // Esto es para el Form
         Collective\Html\HtmlServiceProvider::class,
 
+        //Alertas de bootstrap
+        Laracasts\Flash\FlashServiceProvider::class,
+
     ],
 
     /*
@@ -214,7 +217,6 @@ return [
         // Esto es para el form
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-
     ],
 
 ];

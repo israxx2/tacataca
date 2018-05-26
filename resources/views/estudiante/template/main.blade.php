@@ -30,8 +30,6 @@
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src={{ asset('estudiante_public/js/now-ui-dashboard.js?v=1.0.1') }}></script>
 
-
-
 </head>
 <body class="">
     <div class="wrapper">

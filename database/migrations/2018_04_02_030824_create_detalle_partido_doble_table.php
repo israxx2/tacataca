@@ -19,7 +19,8 @@ class CreateDetallePartidoDobleTable extends Migration
             $table->integer('equipo_id')->unsigned();
             $table->integer('goles');
             $table->enum('resultado',['victoria','derrota','empate']);
-            $table->integer('elo')->default(1200);
+            $table->integer('elo');
+            $table->integer('elo_anterior');
             $table->timestamps();
 
             $table->foreign('equipo_id')->references('id')->on('equipos')->onDelete('cascade');

@@ -81,12 +81,14 @@ class PartidoSingleController extends Controller
             $partido->users()->attach($request->user_id_1, [ 
                 'goles' => $request->goles_1, 
                 'resultado' => 'victoria',
-                'elo' => $K * $Eb
+                'elo' => $K * $Eb,
+                'elo_anterior' => $jugador_1->elo
                 ]);
             $partido->users()->attach($request->user_id_2, [ 
                 'goles' => $request->goles_2, 
                 'resultado' => 'derrota',
-                'elo' => -$K * $Eb
+                'elo' => -$K * $Eb,
+                'elo_anterior' => $jugador_2->elo
                 ]);
 
             if($evento->modalidad_id == 2){
@@ -120,12 +122,14 @@ class PartidoSingleController extends Controller
             $partido->users()->attach($request->user_id_1, [
                 'goles' => $request->goles_1, 
                 'resultado' => 'derrota',
-                'elo' => -$K * $Ea
+                'elo' => -$K * $Ea,
+                'elo_anterior' => $jugador_1->elo
                 ]);
             $partido->users()->attach($request->user_id_2, [
                 'goles' => $request->goles_2, 
                 'resultado' => 'victoria',
-                'elo' => $K * $Ea
+                'elo' => $K * $Ea,
+                'elo_anterior' => $jugador_2->elo
                 ]);
 
             if($evento->modalidad_id == 2){
@@ -153,12 +157,14 @@ class PartidoSingleController extends Controller
             $partido->users()->attach($request->user_id_1, [
                 'goles' => $request->goles_1, 
                 'resultado' => 'empate',
-                'elo' => 0
+                'elo' => 0,
+                'elo_anterior' => $jugador_1->elo
                 ]);
             $partido->users()->attach($request->user_id_2, [
                 'goles' => $request->goles_2, 
                 'resultado' => 'empate',
-                'elo' => 0
+                'elo' => 0,
+                'elo_anterior' => $jugador_1->elo
                 ]);
                 
             $jugador_2->juegos_totales_1v1 = $jugador_2->juegos_totales_1v1 + 1;
