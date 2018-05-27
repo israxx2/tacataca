@@ -21,6 +21,7 @@
                     <h5 class="title">Equipo</h5>
                 </div>
                 <div class="card-body">
+                    @if(!empty($equipo))
                         <h6>Datos del equipo</h6>
                         <table class="table">
                                 <tbody>
@@ -67,6 +68,9 @@
                         <hr>
                         <br>
                     <button type="button" class="btn btn-link float-right" data-toggle="modal" data-target="#password">Cambiar contraseña</button>
+                @else
+                    <h5 class="card-category text-muted">No se ha registrado un equipo<h5>
+                @endif
                 </div>        
             </div>
         </div>

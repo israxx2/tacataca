@@ -131,6 +131,7 @@ class UserController extends Controller
         $user->carrera_id = $request->carrera_id;
         $user->equipo_id = $request->equipo_id;
         $user->tipo = $request->tipo;
+        $user->torneos_ganados = $request->torneos_ganados;
         $user->save();
 
         return Redirect('/admin/user/'.$user->id);

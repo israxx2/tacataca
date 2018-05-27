@@ -81,7 +81,10 @@ class EquipoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $equipo = Equipo::find($id);
+
+        return view('admin.equipos.edit')
+        ->with('equipo', $equipo);
     }
 
     /**
@@ -93,7 +96,12 @@ class EquipoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $equipo = Equipo::find($id);
+        $equipo->nombre = strtoupper($request->nombre);
+        $equipo->torneos_ganados = $request->torneos_ganados;
+        $equipo->save();
+
+        return Redirect('/admin/user/'.$user->id);
     }
 
     /**

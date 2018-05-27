@@ -14,8 +14,8 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
       <ul class="nav">
           {{-- PERFIL DEL USUARIO --}}
           <li class="@yield('perfil', ' ')">
-          <a href="{{ route('estudiante.perfil') }}">
-                  <i class="now-ui-icons users_single-02"></i>
+          <a href="{{ route('estudiante.perfil.index') }}">
+                  <i class="now-ui-icons business_badge"></i>
                   <p>Perfil</p>
               </a>
           </li>
@@ -34,7 +34,7 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
           </li>
           {{-- OPCIONES DE LOS RANKING --}}
           <li class="@yield('ranking', ' ')">
-            <a href="#">
+            <a href="{{ route('estudiante.ranking') }}">
                 <i class="now-ui-icons design_bullet-list-67"></i>
                 <p>Ranking</p>
             </a>
@@ -48,8 +48,8 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
           </li>
           {{-- OPCIONES DE LOS EVENTOS --}}
           <li class="@yield('invitaciones', ' ')">
-            <a href="#">
-                <i class="now-ui-icons ui-1_calendar-60"></i>
+            <a href="#" title="Próximamente" data-toggle="popover" data-trigger="focus" data-placement="left">
+                <i class="now-ui-icons ui-1_email-85"></i>
                 <p>Invitaciones</p>
             </a>
           </li>

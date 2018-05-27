@@ -11,7 +11,7 @@
         </a>
         <div class="collapse" id="collapseSingles">
             <div class="card card-body">
-                @if(empty($user->partidos))
+                @if($user->partidos->isEmpty())
                     <h5 class="card-category text-muted">No se han registrado partidos</h5>
                 @else
                     @foreach($user->partidos->reverse() as $partido)
@@ -110,7 +110,7 @@
             <div class="collapse" id="collapseDobles">
                     <div class="card card-body">
                         <!-- {!! $lim = 0 !!} -->
-                        @if(empty($equipo->partidos))
+                        @if(empty($equipo->partidos) || $equipo->partidos->isEmpty())
                             <h5 class="card-category text-muted">No se han registrado partidos</h5>
                         @else
                             @foreach($equipo->partidos->reverse() as $partido_d)

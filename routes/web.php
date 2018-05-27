@@ -164,7 +164,7 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 
 	Route::get('perfil', [
 	  'uses'  =>'Estudiante\UserController@perfil',
-	  'as'    =>'estudiante.perfil'
+	  'as'    =>'estudiante.perfil.index'
 	]);
 
 	Route::post('perfil/posicion',[
@@ -198,6 +198,16 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 	Route::get('eventos',[
 	  'uses'  =>'Estudiante\UserController@eventos',
 	  'as'    =>'estudiante.eventos'
+	]);
+
+	Route::get('ranking',[
+	  'uses'  =>'Estudiante\UserController@ranking',
+	  'as'    =>'estudiante.ranking'
+	]);
+
+	Route::post('buscador',[
+	  'uses'  =>'Estudiante\UserController@buscador',
+	  'as'    =>'estudiante.buscador'
 	]);
 /*
 	//Rutas de los usuarios
