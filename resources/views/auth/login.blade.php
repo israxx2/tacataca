@@ -3,25 +3,25 @@
 @section('content')
 <div class="container">
 <center>
-<i style="font-size:200px; color:rgb(255, 255, 255);;" class="fas fa-futbol"></i>
+<i style="font-size:200px; color:rgb(255, 255, 255);" class="fas fa-futbol"></i>
 
 </center>
 <br><br>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-body" style="background-color:rgb(120, 171, 142);">
+                <div class="card-body" style="background-color:#f96332;">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-sm-4 col-form-label text-md-right" style="color:#ffffff";>{{ __('Correo Electrónico') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
                                 @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
+                                    <span class="invalid-feedback" style="color:#ffffff">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right" style="color:#ffffff">{{ __('Contraseña') }} </label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>

@@ -61,20 +61,24 @@ class UserController extends Controller
         $equipo = Equipo::find($user->equipo_id);
         
         if(empty($equipo)){
-            return view('estudiante.equipo')
+            return view('estudiante.equipos.index')
             ->with('equipo', $equipo);
         }else{
-            if($equipo->juegos_totales_1v1 == 0){
+            if($equipo->juegos_totales_2v2 == 0){
                 $prom_goles1 = 0;
+                $prom_goles2 = 0;
             }
             else {
-                $prom_goles1 = $user->goles_totales/$user->juegos_totales_1v1;
+                $prom_goles1 = $equipo->goles_totales/$equipo->juegos_totales_2v2;
+                $prom_goles2 = $equipo->goles_contra/$equipo->juegos_totales_2v2;
             }
     
-            $prom_goles = round($prom_goles1, 2);
-            return view('estudiante.equipo')
+            $prom_golesFavor = round($prom_goles1, 2);
+            $prom_golesContra = round($prom_goles2, 2);
+            return view('estudiante.equipos.index')
             ->with('equipo', $equipo)
-            ->with('prom_goles', $prom_goles);
+            ->with('prom_golesFavor', $prom_golesFavor)
+            ->with('prom_golesContra', $prom_golesContra);
         }
         
     }
@@ -112,7 +116,7 @@ class UserController extends Controller
 
     public function historial()
     {   
-        $user = User::find(22);
+        $user = User::find(Auth::User()->id);
         $i = 0;
         $lim = 0;
 

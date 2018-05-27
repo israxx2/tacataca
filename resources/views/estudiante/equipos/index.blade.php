@@ -60,8 +60,12 @@
                                     <td>{{ $equipo->v_torneos_2v2 }}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Promedio Goles</th>
-                                <td>{{ $prom_goles }}</td>
+                                    <th scope="row">Promedio GF</th>
+                                    <td>{{ $prom_golesFavor }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Promedio GT</th>
+                                    <td>{{ $prom_golesContra }}</td>
                                 </tr>
                             </tbody>
                         </table>
