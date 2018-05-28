@@ -35,7 +35,10 @@
                             @foreach($users as $user)
                                 <tr >
                                     <td >{{ $i }}</td>
-                                    <td >{{ $user->nombres.' '.$user->apellidos }}</td>
+                                    <td  >{{ $user->nombres.' '.$user->apellidos }}@for ($j = 0; $j < $user->torneos_ganados; $j++)
+                                        <i class="now-ui-icons sport_trophy"></i>
+                                    @endfor
+                                    </td>
                                     <td class="text-right" >{{ $user->elo }}</td>
                                 </tr>
                             <!-- {{ $i++ }} -->

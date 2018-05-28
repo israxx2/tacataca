@@ -76,11 +76,15 @@
                                         <td>{{ $user->v_torneos_1v1 }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Promedio GF</th>
-                                        <td>{{ $prom_golesFavor }}</td>
+                                        <th scope="row">GF<button type="button" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-content="Promedio de goles a favor de todos tus partidos." data-toggle="popover" data-trigger="focus" data-placement="left">
+                                                <i class="now-ui-icons travel_info"></i>
+                                            </button></th>
+                                        <td>{{ $prom_golesFavor }} </td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Promedio GT</th>
+                                        <th scope="row">GT <button type="button" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-content="Promedio de goles en contra de todos tus partidos." data-toggle="popover" data-trigger="focus" data-placement="left">
+                                                <i class="now-ui-icons travel_info"></i>
+                                            </button></th>
                                         <td>{{ $prom_golesContra }}</td>
                                     </tr>
                                 </tbody>
