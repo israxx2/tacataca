@@ -101,7 +101,7 @@ class EquipoController extends Controller
         $equipo->torneos_ganados = $request->torneos_ganados;
         $equipo->save();
 
-        return Redirect('/admin/user/'.$user->id);
+        return Redirect('/admin/equipo/'.$equipo->id);
     }
 
     /**

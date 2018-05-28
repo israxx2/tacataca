@@ -33,7 +33,8 @@
                 </a>
                 <div class="collapse" id="collapseCampeonatos">
                         <p>Los campeonatos son juegos exclusivos que se realizan una vez al mes, en donde cada jugador o equipo debe jugar primeramente en una pre-fase. Luego, se seleccionan a los 8 mejores para pasar a la fase final.</p>
-                        <p>En la pre-fase los participantes deberán jugar 3 partidos, en donde clasificarán los que más partidos ganen. Si mas de 8 jugadores o equipos ganan, se recurrirá a ver la mejor diferencia de goles. </p>
+                        <p>En la pre-fase los participantes deberán jugar 3 partidos, en donde clasificarán los que más partidos ganen. Si más de 8 jugadores o equipos ganan los tres partidos correspondientes a la pre-fase, se recurrirá a ver la mejor diferencia de goles.</p>
+                        <p>Los jugadores o equipos que ganen serán premiados con un diploma en conjunto de un trofeo virtual, el cual podrá ser visualizado en el ranking y en el perfil de los jugadores o equipos.</p>
                 </div>
 
                 <a class="btn btn-info btn-lg btn-block" data-toggle="collapse" href="#collapseDuelos" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -42,8 +43,18 @@
                 <div class="collapse" id="collapseDuelos">
                         <p>(Próximamente)</p>
                 </div>
-                <center>
+                <a class="btn btn-info btn-lg btn-block" data-toggle="collapse" href="#collapsePremiaciones" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        PREMIACIONES
+                </a>
+                <div class="collapse" id="collapsePremiaciones">
+                        <p>En el mes de Noviembre se realizará el último campeonato, en el cual participarán los 8 mejores jugadores y equipos que dicten en la tabla de ranking a la fecha. Se finalizará con una choripanada en la Universidad, momento en donde se realizarán las premiaciones al primer, segundo y tercer lugar (con trofeos para los ganadores y medallas para los segundos y tercer lugar). También se premiarán por otras categorias.</p>
+                </div>
+
+                
+
                 <hr>
+                <center>
+                
                 <div class="embed-container">
                         <iframe width="300" height="169" src="https://www.youtube.com/embed/VngKT7-UDys" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>

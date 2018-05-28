@@ -79,7 +79,9 @@
                             @foreach($equipos as $equipo)
                                 <tr >
                                     <td >{{ $i }}</td>
-                                    <td >{{ $equipo->nombre }}</td>
+                                    <td >{{ $equipo->nombre }}@for ($j = 0; $j < $equipo->torneos_ganados; $j++)
+                                        <i class="now-ui-icons sport_trophy"></i>
+                                    @endfor</td>
                                     <td class="text-right" >{{ $equipo->elo }}</td>
                                 </tr>
                             <!-- {{ $i++ }} -->
