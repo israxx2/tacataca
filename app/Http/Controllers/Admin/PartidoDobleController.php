@@ -62,6 +62,8 @@ class PartidoDobleController extends Controller
 
         $equipo_1->goles_totales = $equipo_1->goles_totales + $request->goles_1;
         $equipo_2->goles_totales = $equipo_2->goles_totales + $request->goles_2;
+        $equipo_1->goles_contra = $equipo_1->goles_contra + $request->goles_2;
+        $equipo_2->goles_contra = $equipo_2->goles_contra + $request->goles_1;
 
         $Qa = ($equipo_2->elo - $equipo_1->elo)/400;
         $Ea = 1 / (1+ pow(10, $Qa));

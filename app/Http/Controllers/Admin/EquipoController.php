@@ -47,6 +47,9 @@ class EquipoController extends Controller
     {
         $equipo = new Equipo();
         $equipo->nombre = strtoupper($request->nombre);
+        $equipo->goles_totales = 0;
+        $equipo->goles_contra = 0;
+        $equipo->torneos_ganados = 0;
         $equipo->save();
 
         $jugador_1 = User::find($request->user_id_1);

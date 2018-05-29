@@ -68,7 +68,9 @@ class PartidoSingleController extends Controller
 
         $jugador_1->goles_totales = $jugador_1->goles_totales + $request->goles_1;
         $jugador_2->goles_totales = $jugador_2->goles_totales + $request->goles_2;
-        
+        $jugador_1->goles_contra = $jugador_1->goles_contra + $request->goles_2;
+        $jugador_2->goles_contra = $jugador_2->goles_contra + $request->goles_1;
+
         if($request->goles_1 > $request->goles_2){
             if($jugador_1->elo < 2100){
                 $K = 64;
@@ -108,6 +110,7 @@ class PartidoSingleController extends Controller
             } 
             $jugador_1->juegos_totales_1v1 = $jugador_1->juegos_totales_1v1 + 1; 
             $jugador_2->juegos_totales_1v1 = $jugador_2->juegos_totales_1v1 + 1;
+            
             $jugador_1->save();
             $jugador_2->save();          
         }
