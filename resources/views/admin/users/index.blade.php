@@ -13,10 +13,10 @@
 	<table class="table table-striped display compact table-condensed" id="table_user">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>#</th>
         <th>Nombres</th>
         <th>Apellidos</th>
-        <th>Nick</th>
+      
         <th>Carrera</th>
         <th>Elo</th>
 				<th>Juegos1v1</th>
@@ -33,7 +33,7 @@
           <td>{{ $user->id }}</td>
           <td>{{ $user->nombres }}</td>
           <td>{{ $user->apellidos }}</td>
-          <td>{{ $user->nick }}</td>
+    
           <td>{{ $user->carrera->nombre }}</td>
           <td>{{ $user->elo }}</td>
 					<td>{{ $user->juegos_totales_1v1 }}</td>
