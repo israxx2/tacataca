@@ -43,7 +43,7 @@ class Evento extends Model
     //RELACION N:M CON LOS USUARIOS
     public function jugadores()
     {
-        return $this->belongsToMany('App\User', 'inscripcionTorneo')
+        return $this->belongsToMany('App\User', 'inscripciontorneo')
         ->withTimestamps();
     }
 }

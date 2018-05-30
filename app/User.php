@@ -80,7 +80,7 @@ class User extends Authenticatable
     //RELACION N:M CON LOS PARTIDOS
     public function partidos()
     {
-        return $this->belongsToMany('App\Partido', 'detallePartidoSingle', 'user_id', 'partido_id')
+        return $this->belongsToMany('App\Partido', 'detallepartidosingle', 'user_id', 'partido_id')
         ->withPivot('goles', 'resultado', 'elo', 'elo_anterior')
         ->withTimestamps();
     }

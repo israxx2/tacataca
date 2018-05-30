@@ -31,7 +31,7 @@ class Equipo extends Model
     //RELACION N:M CON LOS PARTIDOS
     public function partidos()
     {
-        return $this->belongsToMany('App\Partido', 'detallePartidoDoble', 'equipo_id', 'partido_id')
+        return $this->belongsToMany('App\Partido', 'detallepartidodoble', 'equipo_id', 'partido_id')
         ->withPivot('goles', 'resultado', 'elo', 'elo_anterior')
         ->withTimestamps();
     }

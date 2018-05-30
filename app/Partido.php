@@ -36,7 +36,7 @@ class Partido extends Model
     //RELACION N:M CON LOS USUARIOS
     public function users()
     {
-        return $this->belongsToMany('App\User', 'detallePartidoSingle')
+        return $this->belongsToMany('App\User', 'detallepartidosingle')
           ->withPivot('goles','resultado', 'elo', 'elo_anterior')
           ->withTimestamps();
     }
@@ -44,7 +44,7 @@ class Partido extends Model
     //RELACION N:M CON LOS EQUIPOS
     public function equipos()
     {
-        return $this->belongsToMany('App\Equipo', 'detallePartidoDoble')
+        return $this->belongsToMany('App\Equipo', 'detallepartidodoble')
           ->withPivot('goles','resultado', 'elo', 'elo_anterior')
           ->withTimestamps();
     }
