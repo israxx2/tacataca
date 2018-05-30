@@ -62,6 +62,8 @@ class PartidoDobleController extends Controller
 
         $equipo_1->goles_totales = $equipo_1->goles_totales + $request->goles_1;
         $equipo_2->goles_totales = $equipo_2->goles_totales + $request->goles_2;
+        $equipo_1->goles_contra = $equipo_1->goles_contra + $request->goles_2;
+        $equipo_2->goles_contra = $equipo_2->goles_contra + $request->goles_1;
 
         $Qa = ($equipo_2->elo - $equipo_1->elo)/400;
         $Ea = 1 / (1+ pow(10, $Qa));
@@ -217,12 +219,15 @@ class PartidoDobleController extends Controller
     public function destroy($id)
     {
         $partido = Partido::find($id);
-        
+        $g_contra = [];
+        $id_equipos = [];
+
         foreach($partido->equipos as $equipo){
             $equipo->elo = $equipo->elo - $equipo->pivot->elo;
             $equipo->juegos_totales_2v2 = $equipo->juegos_totales_2v2 - 1;
             $equipo->goles_totales = $equipo->goles_totales - $equipo->pivot->goles;
-            
+            array_push($g_contra, $equipo->pivot->goles);
+            array_push($id_equipos, $equipo->id);
             if($equipo->pivot->resultado == 'victoria'){
                 if($partido->evento->modalidad_id == 1){
                     $equipo->v_duelos_2v2 = $equipo->v_duelos_2v2 - 1;
@@ -234,8 +239,13 @@ class PartidoDobleController extends Controller
 
             $equipo->save();
         }
-
-        $partido->forceDelete();
+        $equipo_1 = Equipo::find($id_equipos[0]);
+        $equipo_2 = Equipo::find($id_equipos[1]);
+        $equipo_1->goles_contra = $equipo_1->goles_contra - $g_contra[1];
+        $equipo_2->goles_contra = $equipo_2->goles_contra - $g_contra[0];
+        $equipo_1->save();
+        $equipo_2->save();
+        // $partido->forceDelete();
 
         return back()->withInput();
     }

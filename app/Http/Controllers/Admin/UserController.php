@@ -53,7 +53,8 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->carrera_id = $request->carrera_id;
         $user->password = bcrypt($request->password);
-        $user->tipo = $request->tipo;
+        $user->goles_contra = 0;
+        $user->torneos_ganados = 0;
         $user->save();
         
         $buzon = new Buzon();
@@ -131,6 +132,7 @@ class UserController extends Controller
         $user->carrera_id = $request->carrera_id;
         $user->equipo_id = $request->equipo_id;
         $user->tipo = $request->tipo;
+        $user->torneos_ganados = $request->torneos_ganados;
         $user->save();
 
         return Redirect('/admin/user/'.$user->id);

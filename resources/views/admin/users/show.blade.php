@@ -46,7 +46,8 @@
 	  <li class="list-group-item list-group-item-dark"><h4>DATOS DE JUEGO:</h1></li>
 	  <li class="list-group-item"><b>VICTORIA(S) DUELO(S): </b>{{ $user->v_duelos_1v1 }}</li>
 	  <li class="list-group-item"><b>VICTORIA(S) TORNEO(S): </b>{{ $user->v_torneos_1v1 }}</li>
-	  <li class="list-group-item"><b>JUEGOS TOTALES: </b>{{ $user->juegos_totales_1v1 }}</li>
+		<li class="list-group-item"><b>JUEGOS TOTALES: </b>{{ $user->juegos_totales_1v1 }}</li>
+		<li class="list-group-item"><b>TORNEOS GANADOS: </b>{{ $user->torneos_ganados }}</li>
 	</ul>
 </div>
 

@@ -20,7 +20,7 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
-        'carrera_id', 'equipo_id', 'buzon_id', 'nombres', 'apellidos', 'nick', 'c_nick', 'elo', 'v_duelos_1v1', 'v_torneos_1v1', 'email', 'tipo', 'password', 'juegos_totales_1v1', 'goles_totales',
+        'carrera_id', 'equipo_id', 'buzon_id', 'nombres', 'apellidos', 'nick', 'c_nick', 'elo', 'v_duelos_1v1', 'v_torneos_1v1', 'email', 'tipo', 'password', 'juegos_totales_1v1', 'torneos_ganados', 'goles_totales', 'goles_contra'
     ];
 
     /**
@@ -91,5 +91,4 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Evento', 'inscripcionTorneo', 'user_id', 'evento_id')
         ->withTimestamps();
     }
-
 }

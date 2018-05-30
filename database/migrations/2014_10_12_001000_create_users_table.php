@@ -25,8 +25,9 @@ class CreateUsersTable extends Migration
             $table->enum('posicion',['delantero','defensa','ambidiestro'])->default("ambidiestro");
             $table->integer('elo')->default(800);
             $table->integer('v_duelos_1v1')->default(0);
-            $table->integer('v_torneos_1v1')->default(0);   
+            $table->integer('v_torneos_1v1')->default(0);
             $table->integer('juegos_totales_1v1')->default(0);
+            $table->integer('torneos_ganados')->default(0); 
             $table->integer('goles_totales')->default(0);
             $table->enum('tipo',['admin','estudiante'])->default("estudiante");
             $table->string('password');

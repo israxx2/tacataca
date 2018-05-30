@@ -68,7 +68,9 @@ class PartidoSingleController extends Controller
 
         $jugador_1->goles_totales = $jugador_1->goles_totales + $request->goles_1;
         $jugador_2->goles_totales = $jugador_2->goles_totales + $request->goles_2;
-        
+        $jugador_1->goles_contra = $jugador_1->goles_contra + $request->goles_2;
+        $jugador_2->goles_contra = $jugador_2->goles_contra + $request->goles_1;
+
         if($request->goles_1 > $request->goles_2){
             if($jugador_1->elo < 2100){
                 $K = 64;
@@ -108,6 +110,7 @@ class PartidoSingleController extends Controller
             } 
             $jugador_1->juegos_totales_1v1 = $jugador_1->juegos_totales_1v1 + 1; 
             $jugador_2->juegos_totales_1v1 = $jugador_2->juegos_totales_1v1 + 1;
+            
             $jugador_1->save();
             $jugador_2->save();          
         }
@@ -219,10 +222,15 @@ class PartidoSingleController extends Controller
     public function destroy($id)
     {
         $partido = Partido::find($id);
+        $g_contra = [];
+        $id_jugadores = [];
+
         foreach($partido->users as $user){
             $user->elo = $user->elo - $user->pivot->elo;
             $user->juegos_totales_1v1 = $user->juegos_totales_1v1 - 1;
             $user->goles_totales = $user->goles_totales - $user->pivot->goles;
+            array_push($g_contra, $user->pivot->goles);
+            array_push($id_jugadores, $user->id);
 
             if($user->pivot->resultado == 'victoria'){
                 if($partido->evento->modalidad_id == 1){
@@ -232,12 +240,15 @@ class PartidoSingleController extends Controller
                     $user->v_torneos_1v1 = $user->v_torneos_1v1 - 1;
                 }
             }
-
-
             $user->save();
-
         }
 
+        $user_1 = User::find($id_jugadores[0]);
+        $user_2 = User::find($id_jugadores[1]);
+        $user_1->goles_contra = $user_1->goles_contra - $g_contra[1];
+        $user_2->goles_contra = $user_2->goles_contra - $g_contra[0];
+        $user_1->save();
+        $user_2->save();
 
         $partido->forceDelete();
 

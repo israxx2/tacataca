@@ -21,6 +21,7 @@
                     <h5 class="title">Equipo</h5>
                 </div>
                 <div class="card-body">
+                    @if(!empty($equipo))
                         <h6>Datos del equipo</h6>
                         <table class="table">
                                 <tbody>
@@ -59,14 +60,21 @@
                                     <td>{{ $equipo->v_torneos_2v2 }}</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Promedio Goles</th>
-                                <td>{{ $prom_goles }}</td>
+                                    <th scope="row">Promedio GF</th>
+                                    <td>{{ $prom_golesFavor }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Promedio GT</th>
+                                    <td>{{ $prom_golesContra }}</td>
                                 </tr>
                             </tbody>
                         </table>
                         <hr>
                         <br>
                     <button type="button" class="btn btn-link float-right" data-toggle="modal" data-target="#password">Cambiar contraseña</button>
+                @else
+                    <h5 class="card-category text-muted">No se ha registrado un equipo<h5>
+                @endif
                 </div>        
             </div>
         </div>

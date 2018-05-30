@@ -43,6 +43,10 @@
       {!! Form::select('equipo_id', $equipos, $user->equipo_id, ['class' => 'form-control']) !!}
     </div>
 
+    <div class="form-group">
+      {!! Form::label('torneos_ganados', 'Torneos ganados') !!}
+      {!! Form::input('number', 'torneos_ganados', $user->torneos_ganados, ['class' => 'form-control', 'min' => 00, 'max' => 59, 'required']) !!}
+    </div>
     <center>
       <div class="form-group">
         {!! Form::submit('Registrar', ['class' => 'btn btn-primary']) !!}

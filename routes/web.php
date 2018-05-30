@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Redirect('login');
 });
 
 Auth::routes();
@@ -164,7 +164,7 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 
 	Route::get('perfil', [
 	  'uses'  =>'Estudiante\UserController@perfil',
-	  'as'    =>'estudiante.perfil'
+	  'as'    =>'estudiante.perfil.index'
 	]);
 
 	Route::post('perfil/posicion',[
@@ -179,7 +179,7 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 
 	Route::get('Equipo', [
 	  'uses'  =>'Estudiante\UserController@equipo',
-	  'as'    =>'estudiante.equipo'
+	  'as'    =>'estudiante.equipo.index'
 	]);
 
 	Route::get('historial', [
@@ -199,6 +199,22 @@ Route::group(['prefix' => 'estudiante', 'middleware' => 'estudiante'], function 
 	  'uses'  =>'Estudiante\UserController@eventos',
 	  'as'    =>'estudiante.eventos'
 	]);
+
+	Route::get('ranking',[
+	  'uses'  =>'Estudiante\UserController@ranking',
+	  'as'    =>'estudiante.ranking'
+	]);
+
+	Route::get('info', function () {
+    return view('estudiante.info');
+	})->name('estudiante.info');
+
+	/*Route::post('buscador',[
+	  'uses'  =>'Estudiante\UserController@buscador',
+	  'as'    =>'estudiante.buscador'
+	]);
+	*/
+
 /*
 	//Rutas de los usuarios
 	Route::resource('eventos', 'Admin\EventoController')->only([

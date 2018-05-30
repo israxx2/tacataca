@@ -34,7 +34,8 @@
 	  <li class="list-group-item list-group-item-dark"><h4>DATOS DE JUEGO:</h1></li>
 	  <li class="list-group-item"><b>VICTORIA(S) DUELO(S): </b>{{ $equipo->v_duelos_2v2 }}</li>
 	  <li class="list-group-item"><b>VICTORIA(S) TORNEO(S): </b>{{ $equipo->v_torneos_2v2 }}</li>
-	  <li class="list-group-item"><b>JUEGOS TOTALES: </b>{{ $equipo->juegos_totales_2v2 }}</li>
+		<li class="list-group-item"><b>JUEGOS TOTALES: </b>{{ $equipo->juegos_totales_2v2 }}</li>
+		<li class="list-group-item"><b>TORNEOS GANADOS: </b>{{ $equipo->torneos_ganados }}</li>
 	</ul>
 </div>
 

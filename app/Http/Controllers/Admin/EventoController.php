@@ -75,7 +75,8 @@ class EventoController extends Controller
 
     public function partidos($id)
     {
-        $evento = Evento::find($id);
+        $evento = Evento::withTrashed()
+        ->find($id);
         
         $partidos = Partido::orderBy('id', 'DESC')
             ->where('evento_id', $id)
@@ -101,7 +102,8 @@ class EventoController extends Controller
      */
     public function edit($id)
     {
-        $evento = Evento::find($id);
+        $evento = Evento::withTrashed()
+        ->find($id);
         $modalidades = Modalidad::orderBy('id', 'ASC')
         ->pluck('nombre', 'id');
         $fecha = explode('-', $evento->fecha);

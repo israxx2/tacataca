@@ -20,6 +20,7 @@ class CreateEquiposTable extends Migration
             $table->integer('v_duelos_2v2')->default(0);
             $table->integer('v_torneos_2v2')->default(0);
             $table->integer('juegos_totales_2v2')->default(0);
+            $table->integer('torneos_ganados')->default(0); 
             $table->integer('goles_totales')->default(0);
             $table->softDeletes();
             $table->timestamps();

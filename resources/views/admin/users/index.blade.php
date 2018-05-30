@@ -13,14 +13,15 @@
 	<table class="table table-striped display compact table-condensed" id="table_user">
     <thead>
       <tr>
-        <th>ID</th>
+        <th>#</th>
         <th>Nombres</th>
         <th>Apellidos</th>
-        <th>Nick</th>
+      
         <th>Carrera</th>
         <th>Elo</th>
 				<th>Juegos1v1</th>
-				<th>Goles Totales</th>
+				<th>GF</th>
+				<th>GC</th>
         <th>Estado</th>
 		<th>Detalles</th>
 		<th>Eliminar</th>
@@ -32,11 +33,12 @@
           <td>{{ $user->id }}</td>
           <td>{{ $user->nombres }}</td>
           <td>{{ $user->apellidos }}</td>
-          <td>{{ $user->nick }}</td>
+    
           <td>{{ $user->carrera->nombre }}</td>
           <td>{{ $user->elo }}</td>
 					<td>{{ $user->juegos_totales_1v1 }}</td>
 					<td>{{ $user->goles_totales }}</td>
+					<td>{{ $user->goles_contra }}</td>
           <td>
           	@if($user->deleted_at == null)
           		<p href="#" class="btn btn-success">

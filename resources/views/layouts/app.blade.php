@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,7 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body background="{{ asset('img/fondo_login.jpg') }}">
+<body style="background:linear-gradient(to right, #0c2646 0%, #204065 60%, #2a5788 100%);" >
     <div id="app">
         <main class="py-4">
             @yield('content')
