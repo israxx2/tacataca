@@ -6,7 +6,7 @@ Tip 1: You can change the color of the sidebar using: data-color="blue | green |
       <a href="#" class="simple-text logo-mini">
           UCM
       </a>
-      <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+      <a href="#" class="simple-text logo-normal">
           Taca-taca
       </a>
   </div>
