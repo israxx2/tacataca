@@ -88,7 +88,7 @@ class User extends Authenticatable
     //RELACION N:M CON LOS EVENTOS
     public function torneos()
     {
-        return $this->belongsToMany('App\Evento', 'inscripcionTorneo', 'user_id', 'evento_id')
+        return $this->belongsToMany('App\Evento', 'inscripciontorneo', 'user_id', 'evento_id')
         ->withTimestamps();
     }
 }
