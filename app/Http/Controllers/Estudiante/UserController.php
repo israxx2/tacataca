@@ -101,7 +101,7 @@ class UserController extends Controller
         if (Hash::check($request->password, $hashedPassword))
             {
                 if($request->new_password1 == $request->new_password2){
-                    $user->password = bcrypt($request->new_password);
+                    $user->password = bcrypt($request->new_password1);
                     $user->save();
                     flash('Se ha modificado la contraseña')->success();
                 }else{
