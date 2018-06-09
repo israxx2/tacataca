@@ -40,7 +40,37 @@
 
     <div class="form-group">
       {!! Form::label('equipo_id', 'Equipo') !!}
-      {!! Form::select('equipo_id', $equipos, $user->equipo_id, ['class' => 'form-control']) !!}
+
+      <select class="form-control" id="equipo_id" name="equipo_id">
+        
+        <option value="NULL" selected>SIN EQUIPO...</option>
+       
+        @foreach($equipos as $equipo)
+          
+          @if(!$user->equipo_id)
+
+            <option value="{{ $equipo->id }}">{{ $equipo->nombre }}</option>
+
+          @else
+
+            @if($equipo->id == $user->equipo_id)
+              <option value="{{ $equipo->id }}" selected>{{ $equipo->nombre }}</option>
+            @else
+              <option value="{{ $equipo->id }}">{{ $equipo->nombre }}</option>
+            @endif
+
+          @endif
+
+        @endforeach     
+
+      </select> 
+
+
+
+
+
+
+
     </div>
 
     <div class="form-group">
